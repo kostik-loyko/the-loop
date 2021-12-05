@@ -5,6 +5,7 @@ body {
 }
 ul {
    padding: 0px;
+   list-style: none;
 }
 .page-cream {
    background-color: #F9F6F1;
@@ -26,14 +27,40 @@ ul {
    @include displayflex;
    padding: 0px 0px 20px 0px;
    &__nav {
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include displayflex;
       gap: 35px;
+      @include breakpoint (lg) {
+         gap: 20px;
+      }
+      @include breakpoint (md) {
+         &:nth-child(1) {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+         }
+         &:nth-child(2) {
+            display: block;
+            position: fixed;
+            top: 40px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+         }
+         
+         // background-color: #D7B399;
+      }
    }
    &__logo {
       margin: 0px 90px 0px 91px;
+      @media (max-width: 1045px) {
+         margin: 0px 40px 0px 40px;
+      }
+      @media (max-width: 790px) {
+         margin: 0px 20px 0px 20px;
+      }
    }
    &__link {
       font-weight: 500;
@@ -57,9 +84,19 @@ ul {
       align-items: center;
       gap: 15px;
       margin-left: 101px;
+      @media (max-width: 1045px) {
+         margin-left: 50px;
+      }
+      @include breakpoint (lg) {
+         margin-left: 10px;
+         gap: 0px;
+      }
    }
    &__basket {
       margin-right: 5px;
+      @include breakpoint (lg) {
+         margin-right: 0px;
+      }
    }
 
    &__sticker {
@@ -74,6 +111,32 @@ ul {
       font-size: 12px;
       letter-spacing: 0.03em;
       color: #FFFFFF;
+   }
+   @include breakpoint (md) {
+   &__burger {
+      position: absolute;
+      z-index: 4px;
+      width: 30px;
+      height: 20px;
+      & span {
+         display: block;
+         position: absolute;
+         top: 9px;
+         height: 2px;
+         width: 100%;
+         background-color: black;
+      }
+      &::before,&::after {
+         content: "";
+         position: absolute;
+         height: 2px;
+         width: 100%;
+         background-color: black;
+      }
+      &::after {
+         bottom: 0px;
+      }
+   }
    }
 }
 .page-cream {
@@ -150,6 +213,11 @@ ul {
    line-height: 20px;
    letter-spacing: 0.03em;
    color: #FFFFFF;
+   &__center {
+      display: block;
+      max-width: 160px;
+      margin: 100px auto 0px auto;
+   }
 }
 .btn:hover {
    background-color: #db915c;
@@ -222,4 +290,149 @@ ul {
       bottom: 0px;
       right: 0px;
    }
+}
+.page-light {
+   background-color: #fff;
+   margin: 150px 0px 150px 0px;
+}
+.new {
+
+   &__title {
+      text-align: center;
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 44px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #212121;
+   }
+
+   &__items {
+      @include displayflex;
+      gap: 30px;
+   }
+
+   &__item {
+      position: relative;
+      &::before, &::after {
+         content: "";
+         display: block;
+         max-width: 100%;
+         height: 25px;
+         background-repeat: no-repeat;
+         background-size: contain;
+      }
+      &::before {
+         background-image: url("../image/group-top.svg");
+      }
+      &::after {
+         background-image: url("../image/group-bottom.svg");
+      }
+   }
+
+   &__image {
+      display: block;
+      margin: 0 auto;
+   }
+
+   &__text {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+      color: #000000;
+   }
+   
+   &__price {
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 22px;
+      text-align: center;
+      color: #D7B399;
+   }
+   &__arrow {
+      margin-left: 10px;
+   }
+}
+.footer {
+   &__container {
+      @include displayflex;
+      align-items: start;
+      padding: 80px 0px;
+      gap: 30px;
+   }
+   &__logo {
+   }
+
+   &__nav {
+   }
+   &__title {
+      font-weight: bold;
+      font-size: 10px;
+      line-height: 12px;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      text-decoration: none;
+      margin: 0px 0px 20px 0px;
+   }
+   &__link {
+      display: inline-block;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 22px;
+      color: #CBCFD4;
+      text-decoration: none;
+      margin-bottom: 20px;
+      &:hover {
+         color: #D7B399;
+      }
+      &:active {
+         color: #ffffff;
+      }
+   }
+
+   &__social {
+      display: inline-block;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 22px;
+      color: #CBCFD4;
+      text-decoration: none;
+      margin-bottom: 20px;
+      background-repeat: no-repeat;
+      padding-left: 30px;
+      background-position: 0 5px;
+      &:hover {
+         color: #D7B399;
+      }
+      &:active {
+         color: #ffffff;
+      }
+   &-vk {
+      background-image: url("../image/vk.svg");
+   }
+   &-fb {
+      background-image: url("../image/fb.svg");
+   }
+   &-in {
+      background-image: url("../image/in.svg");
+   }
+   }
+   &__box {
+      @include displayflex;
+      gap: 30px;
+   }
+}
+.page-light {
+
+   &__footer {
+      margin: 30px 0px;
+   }
+}
+.copyright {
+   font-weight: normal;
+   font-size: 14px;
+   line-height: 22px;
+   color: #212121;
+   text-decoration: none;
 }
