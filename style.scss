@@ -26,40 +26,24 @@ ul {
 .header {
    @include displayflex;
    padding: 0px 0px 20px 0px;
+   gap: 25px;
    &__nav {
       @include displayflex;
-      gap: 35px;
-      @include breakpoint (lg) {
-         gap: 20px;
-      }
-      @include breakpoint (md) {
-         &:nth-child(1) {
-            display: block;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-         }
-         &:nth-child(2) {
-            display: block;
-            position: fixed;
-            top: 40px;
-            left: 0;
-            height: 100%;
-            width: 100%;
-         }
-         
-         // background-color: #D7B399;
+      gap: 25px;
+   }
+   @include breakpoint (md) {
+      &__nav {
+         position: fixed;
+         display: block;
+         width: 100%;
+         // height: 50%;
+         // background-color: coral;
       }
    }
    &__logo {
-      margin: 0px 90px 0px 91px;
-      @media (max-width: 1045px) {
-         margin: 0px 40px 0px 40px;
-      }
-      @media (max-width: 790px) {
-         margin: 0px 20px 0px 20px;
+      @include breakpoint (lg) {
+         width: 150px;
+         height: 30px;
       }
    }
    &__link {
@@ -79,24 +63,10 @@ ul {
    &__item {
    }
    &__sale {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      margin-left: 101px;
-      @media (max-width: 1045px) {
-         margin-left: 50px;
-      }
-      @include breakpoint (lg) {
-         margin-left: 10px;
-         gap: 0px;
-      }
+      @include displayflex;
+      gap: 5px;
    }
    &__basket {
-      margin-right: 5px;
-      @include breakpoint (lg) {
-         margin-right: 0px;
-      }
    }
 
    &__sticker {
@@ -112,32 +82,36 @@ ul {
       letter-spacing: 0.03em;
       color: #FFFFFF;
    }
-   @include breakpoint (md) {
    &__burger {
-      position: absolute;
-      z-index: 4px;
-      width: 30px;
-      height: 20px;
-      & span {
+      display: none;
+   }
+   @include breakpoint (md) {
+      &__burger {
          display: block;
          position: absolute;
-         top: 9px;
-         height: 2px;
-         width: 100%;
-         background-color: black;
+         z-index: 4px;
+         width: 30px;
+         height: 20px;
+         & span {
+            display: block;
+            position: absolute;
+            top: 9px;
+            height: 2px;
+            width: 100%;
+            background-color: black;
+         }
+         &::before,&::after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background-color: black;
+         }
+         &::after {
+            bottom: 0px;
+         }
       }
-      &::before,&::after {
-         content: "";
-         position: absolute;
-         height: 2px;
-         width: 100%;
-         background-color: black;
       }
-      &::after {
-         bottom: 0px;
-      }
-   }
-   }
 }
 .page-cream {
    &__sale {

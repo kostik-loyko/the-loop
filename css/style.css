@@ -37,6 +37,7 @@ ul {
       -ms-flex-align: center;
           align-items: center;
   padding: 0px 0px 20px 0px;
+  gap: 25px;
 }
 
 .header__nav {
@@ -49,47 +50,21 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 35px;
-}
-
-@media (max-width: 992px) {
-  .header__nav {
-    gap: 20px;
-  }
+  gap: 25px;
 }
 
 @media (max-width: 768px) {
-  .header__nav:nth-child(1) {
-    display: block;
+  .header__nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-  }
-  .header__nav:nth-child(2) {
     display: block;
-    position: fixed;
-    top: 40px;
-    left: 0;
-    height: 100%;
     width: 100%;
   }
 }
 
-.header__logo {
-  margin: 0px 90px 0px 91px;
-}
-
-@media (max-width: 1045px) {
+@media (max-width: 992px) {
   .header__logo {
-    margin: 0px 40px 0px 40px;
-  }
-}
-
-@media (max-width: 790px) {
-  .header__logo {
-    margin: 0px 20px 0px 20px;
+    width: 150px;
+    height: 30px;
   }
 }
 
@@ -120,31 +95,7 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 15px;
-  margin-left: 101px;
-}
-
-@media (max-width: 1045px) {
-  .header__sale {
-    margin-left: 50px;
-  }
-}
-
-@media (max-width: 992px) {
-  .header__sale {
-    margin-left: 10px;
-    gap: 0px;
-  }
-}
-
-.header__basket {
-  margin-right: 5px;
-}
-
-@media (max-width: 992px) {
-  .header__basket {
-    margin-right: 0px;
-  }
+  gap: 5px;
 }
 
 .header__sticker {
@@ -161,8 +112,13 @@ ul {
   color: #FFFFFF;
 }
 
+.header__burger {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .header__burger {
+    display: block;
     position: absolute;
     z-index: 4px;
     width: 30px;
