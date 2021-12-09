@@ -2,9 +2,6 @@
 
 body {
    font-family: 'Montserrat', sans-serif;
-   @include breakpoint (md) {
-      overflow: hidden;
-   }
 }
 ul {
    padding: 0px;
@@ -129,6 +126,7 @@ ul {
             height: 2px;
             width: 100%;
             background-color: black;
+            transition: 0.3s ease all;
          }
          &::before,&::after {
             content: "";
@@ -136,6 +134,7 @@ ul {
             height: 2px;
             width: 100%;
             background-color: black;
+            transition: 0.3s ease all;
          }
          &::after {
             bottom: 0px;
@@ -159,12 +158,21 @@ ul {
 .page-cream {
    &__sale {
       padding: 226px 0px 133px 0px;
+      @include breakpoint (lg) {
+         padding: 170px 0px 110px 0px;
+      }
+      @include breakpoint (md) {
+         padding: 130px 0px 85px 0px;
+      }
    }
 }
 .sale {
    display: flex;
    justify-content: space-between;
+   gap: 30px;
    &__description {
+      position: relative;
+      flex-basis: 60%;
    }
 
    &__title {
@@ -174,24 +182,43 @@ ul {
       line-height: 37px;
       letter-spacing: 0.02em;
       color: #000000;
+      @include breakpoint (lg) {
+         font-size: 25px;
+      }
    }
 
    &__text {
-      margin: 35px 0px 55px 0px;
+      margin: 55px 0px 55px 0px;
       font-weight: bold;
       font-size: 55px;
       line-height: 67px;
       letter-spacing: 0.04em;
       color: #000000;
       text-transform: uppercase;
+      @include breakpoint (lg) {
+         font-size: 48px;
+         margin: 25px 0px 55px 0px;
+      }
    }
 
    &__btn {
+      position: absolute;
+      bottom: 0;
+      @include breakpoint (lg) {
+         position: static;
+      }
    }
    &__product {
+      display: flex;
       position: relative;
    }
    &__image {
+      & img {
+         max-width: 100%;
+      }
+      @include breakpoint (lg) {
+         align-self: flex-end;
+      }
    }
 
    &__price-start {
@@ -219,6 +246,10 @@ ul {
       letter-spacing: 0.02em;
       text-transform: uppercase;
       color: #D84033;
+      @include breakpoint (lg) {
+         top: 15px;
+         font-size: 32px;
+      }
    }
 }
 .btn {
@@ -246,6 +277,9 @@ ul {
    background-color: #212121;
    &__delivery {
       padding: 80px 0px 69px 0px;
+      @include breakpoint (md) {
+         padding: 35px 0px 34px 0px;
+      }
    }
 }
 .delivery {
@@ -273,11 +307,18 @@ ul {
 .page-cream {
    &__product {
       margin-bottom: 200px;
+      @include breakpoint (lg) {
+         margin-bottom: 50px;
+      }
    }
 }
 .product {
    @include displayflex;
    gap: 35px;
+   @include breakpoint (lg) {
+      flex-wrap: wrap;
+      justify-content: center;
+   }
    &__item {
       position: relative;
       padding: 60px 245px 58px 0px;
@@ -311,6 +352,11 @@ ul {
 .page-light {
    background-color: #fff;
    margin: 150px 0px 150px 0px;
+   &__new {
+      @include breakpoint (lg) {
+         margin: 75px 0px 75px 0px;
+      }
+   }
 }
 .new {
 
@@ -327,14 +373,20 @@ ul {
    &__items {
       @include displayflex;
       gap: 30px;
+      @include breakpoint (lg) {
+         flex-wrap: wrap;
+         justify-content: space-around;
+      }
    }
 
    &__item {
       position: relative;
+      flex: 47%;
       &::before, &::after {
          content: "";
          display: block;
-         max-width: 100%;
+         margin: 0 auto;
+         max-width: 255px;
          height: 25px;
          background-repeat: no-repeat;
          background-size: contain;
@@ -374,11 +426,17 @@ ul {
 .footer {
    &__container {
       @include displayflex;
+      position: relative;
       align-items: start;
       padding: 80px 0px;
       gap: 30px;
    }
    &__logo {
+      @include breakpoint (lg) {
+         position: absolute;
+         top: 10px;
+         left: 50%;
+      }
    }
 
    &__nav {
