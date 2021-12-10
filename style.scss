@@ -14,7 +14,7 @@ ul {
       left: 0px;
       top: 0px;
       width: 100%;
-      padding: 50px 0px 0px 0px;
+      padding: 30px 0px 0px 0px;
       z-index: 1;
       @include breakpoint (lg) {
          padding: 30px 0px 0px 0px;
@@ -29,10 +29,35 @@ ul {
    margin: 0 auto;
    padding: 0px 20px;
 }
+.btn {
+   background-color: #D7B399;
+   padding: 18px 30px;
+   text-transform: uppercase;
+   text-decoration: none;
+   font-size: 16px;
+   line-height: 20px;
+   letter-spacing: 0.03em;
+   color: #FFFFFF;
+   &__center {
+      display: block;
+      max-width: 160px;
+      margin: 100px auto 0px auto;
+   }
+}
+.btn:hover {
+   background-color: #db915c;
+}
+.btn:active {
+   background-color: #ce7231;
+}
 .header {
    @include displayflex;
    padding: 0px 0px 20px 0px;
    gap: 25px;
+   position: relative;
+   @media (max-width: 420px) {
+      padding: 45px 0px 20px 0px;
+   }
    &__nav {
       @include displayflex;
       gap: 25px;
@@ -66,6 +91,12 @@ ul {
       @include breakpoint (md) {
          padding: 0px 0px 0px 30px;
       }
+      @media (max-width: 420px) {
+         position: absolute;
+         top: 0px;
+         left: 45%;
+         transform: translateX(-50%);
+      }
    }
    &__link {
       font-weight: 500;
@@ -95,20 +126,28 @@ ul {
       gap: 5px;
    }
    &__basket {
+      @include breakpoint (sm) {
+         object-fit: contain;
+      }
    }
 
    &__sticker {
       width: 50px;
-      height: 17px;
+      height: 15px;
       text-align: center;
       background-image: url("../image/sticker.svg");
       background-position: center;
+      background-size: contain;
       background-repeat: no-repeat;
       padding: 5.2px 0px 0px 10px;
       font-weight: bold;
       font-size: 12px;
       letter-spacing: 0.03em;
       color: #FFFFFF;
+      @include breakpoint (sm) {
+         width: 30px;
+         padding: 2.2px 0px 0px 10px;
+      }
    }
    &__burger {
       display: none;
@@ -170,9 +209,17 @@ ul {
    display: flex;
    justify-content: space-between;
    gap: 30px;
+   @include breakpoint (sm) {
+      flex-wrap: wrap;
+      gap: 50px;
+   }
    &__description {
       position: relative;
-      flex-basis: 60%;
+      flex-basis: 70%;
+      @include breakpoint (sm) {
+         flex-basis: 100%;
+         text-align: center;
+      }
    }
 
    &__title {
@@ -184,6 +231,9 @@ ul {
       color: #000000;
       @include breakpoint (lg) {
          font-size: 25px;
+      }
+      @include breakpoint (md) {
+         font-size: 20px;
       }
    }
 
@@ -199,13 +249,29 @@ ul {
          font-size: 48px;
          margin: 25px 0px 55px 0px;
       }
+      @include breakpoint (md) {
+         font-size: 36px;
+         margin: 20px 0px 45px 0px;
+      }
    }
 
    &__btn {
       position: absolute;
       bottom: 0;
+      white-space: nowrap;
       @include breakpoint (lg) {
          position: static;
+      }
+      @include breakpoint (md) {
+         padding: 12px 24px;
+         font-size: 16px;
+      }
+      @include breakpoint (sm) {
+         padding: 12px 12px;
+         font-size: 14px;
+      }
+      @include breakpoint (xs) {
+         color: cornflowerblue;
       }
    }
    &__product {
@@ -233,6 +299,9 @@ ul {
       text-decoration-line: line-through;
       text-transform: uppercase;
       color: #000000;
+      @include breakpoint (sm) {
+         font-size: 20px;
+      }
    }
 
    &__price-end {
@@ -250,28 +319,15 @@ ul {
          top: 15px;
          font-size: 32px;
       }
+      @include breakpoint (sm) {
+         top: 10px;
+         font-size: 24px;
+      }
+      @include breakpoint (xs) {
+         top: 5px;
+         font-size: 20px;
+      }
    }
-}
-.btn {
-   background-color: #D7B399;
-   padding: 18px 30px;
-   text-transform: uppercase;
-   text-decoration: none;
-   font-size: 16px;
-   line-height: 20px;
-   letter-spacing: 0.03em;
-   color: #FFFFFF;
-   &__center {
-      display: block;
-      max-width: 160px;
-      margin: 100px auto 0px auto;
-   }
-}
-.btn:hover {
-   background-color: #db915c;
-}
-.btn:active {
-   background-color: #ce7231;
 }
 .page-dark {
    background-color: #212121;
@@ -430,16 +486,27 @@ ul {
       align-items: start;
       padding: 80px 0px;
       gap: 30px;
+      @include breakpoint (md) {
+         // flex: 0 1 48%;
+         flex-wrap: wrap;
+      }
    }
    &__logo {
       @include breakpoint (lg) {
          position: absolute;
          top: 10px;
          left: 50%;
+         transform: translateX(-50%);
       }
    }
 
    &__nav {
+      @include breakpoint (md) {
+         flex-basis: 47%;
+         & li {
+            padding-left: 30px;
+         }
+      }
    }
    &__title {
       font-weight: bold;

@@ -16,7 +16,7 @@ ul {
   left: 0px;
   top: 0px;
   width: 100%;
-  padding: 50px 0px 0px 0px;
+  padding: 30px 0px 0px 0px;
   z-index: 1;
 }
 
@@ -38,6 +38,31 @@ ul {
   padding: 0px 20px;
 }
 
+.btn {
+  background-color: #D7B399;
+  padding: 18px 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+}
+
+.btn__center {
+  display: block;
+  max-width: 160px;
+  margin: 100px auto 0px auto;
+}
+
+.btn:hover {
+  background-color: #db915c;
+}
+
+.btn:active {
+  background-color: #ce7231;
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -50,6 +75,13 @@ ul {
           align-items: center;
   padding: 0px 0px 20px 0px;
   gap: 25px;
+  position: relative;
+}
+
+@media (max-width: 420px) {
+  .header {
+    padding: 45px 0px 20px 0px;
+  }
 }
 
 .header__nav {
@@ -103,6 +135,16 @@ ul {
   }
 }
 
+@media (max-width: 420px) {
+  .header__logo {
+    position: absolute;
+    top: 0px;
+    left: 45%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
 .header__link {
   font-weight: 500;
   font-size: 14px;
@@ -146,18 +188,33 @@ ul {
   gap: 5px;
 }
 
+@media (max-width: 576px) {
+  .header__basket {
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+}
+
 .header__sticker {
   width: 50px;
-  height: 17px;
+  height: 15px;
   text-align: center;
   background-image: url("../image/sticker.svg");
   background-position: center;
+  background-size: contain;
   background-repeat: no-repeat;
   padding: 5.2px 0px 0px 10px;
   font-weight: bold;
   font-size: 12px;
   letter-spacing: 0.03em;
   color: #FFFFFF;
+}
+
+@media (max-width: 576px) {
+  .header__sticker {
+    width: 30px;
+    padding: 2.2px 0px 0px 10px;
+  }
 }
 
 .header__burger {
@@ -237,10 +294,26 @@ ul {
   gap: 30px;
 }
 
+@media (max-width: 576px) {
+  .sale {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 50px;
+  }
+}
+
 .sale__description {
   position: relative;
-  -ms-flex-preferred-size: 60%;
-      flex-basis: 60%;
+  -ms-flex-preferred-size: 70%;
+      flex-basis: 70%;
+}
+
+@media (max-width: 576px) {
+  .sale__description {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    text-align: center;
+  }
 }
 
 .sale__title {
@@ -255,6 +328,12 @@ ul {
 @media (max-width: 992px) {
   .sale__title {
     font-size: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sale__title {
+    font-size: 20px;
   }
 }
 
@@ -275,14 +354,42 @@ ul {
   }
 }
 
+@media (max-width: 768px) {
+  .sale__text {
+    font-size: 36px;
+    margin: 20px 0px 45px 0px;
+  }
+}
+
 .sale__btn {
   position: absolute;
   bottom: 0;
+  white-space: nowrap;
 }
 
 @media (max-width: 992px) {
   .sale__btn {
     position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .sale__btn {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sale__btn {
+    padding: 12px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .sale__btn {
+    color: cornflowerblue;
   }
 }
 
@@ -319,6 +426,12 @@ ul {
   color: #000000;
 }
 
+@media (max-width: 576px) {
+  .sale__price-start {
+    font-size: 20px;
+  }
+}
+
 .sale__price-end {
   top: 20px;
   right: 0px;
@@ -339,29 +452,18 @@ ul {
   }
 }
 
-.btn {
-  background-color: #D7B399;
-  padding: 18px 30px;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 20px;
-  letter-spacing: 0.03em;
-  color: #FFFFFF;
+@media (max-width: 576px) {
+  .sale__price-end {
+    top: 10px;
+    font-size: 24px;
+  }
 }
 
-.btn__center {
-  display: block;
-  max-width: 160px;
-  margin: 100px auto 0px auto;
-}
-
-.btn:hover {
-  background-color: #db915c;
-}
-
-.btn:active {
-  background-color: #ce7231;
+@media (max-width: 320px) {
+  .sale__price-end {
+    top: 5px;
+    font-size: 20px;
+  }
 }
 
 .page-dark {
@@ -577,11 +679,30 @@ ul {
   gap: 30px;
 }
 
+@media (max-width: 768px) {
+  .footer__container {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 @media (max-width: 992px) {
   .footer__logo {
     position: absolute;
     top: 10px;
     left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__nav {
+    -ms-flex-preferred-size: 47%;
+        flex-basis: 47%;
+  }
+  .footer__nav li {
+    padding-left: 30px;
   }
 }
 
