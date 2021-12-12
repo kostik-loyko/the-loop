@@ -28,6 +28,9 @@ ul {
    max-width: 1110px;
    margin: 0 auto;
    padding: 0px 20px;
+   @include breakpoint (xs) {
+      padding: 0px 10px;
+   }
 }
 .btn {
    background-color: #D7B399;
@@ -42,6 +45,9 @@ ul {
       display: block;
       max-width: 160px;
       margin: 100px auto 0px auto;
+      @include breakpoint (sm) {
+         margin: 40px auto 0px auto;
+      }
    }
 }
 .btn:hover {
@@ -54,9 +60,8 @@ ul {
    @include displayflex;
    padding: 0px 0px 20px 0px;
    gap: 25px;
-   position: relative;
-   @media (max-width: 420px) {
-      padding: 45px 0px 20px 0px;
+   @include breakpoint (xs) {
+      gap: 5px;
    }
    &__nav {
       @include displayflex;
@@ -92,10 +97,8 @@ ul {
          padding: 0px 0px 0px 30px;
       }
       @media (max-width: 420px) {
-         position: absolute;
-         top: 0px;
-         left: 45%;
-         transform: translateX(-50%);
+         width: 100px;
+         height: 25px;
       }
    }
    &__link {
@@ -126,27 +129,26 @@ ul {
       gap: 5px;
    }
    &__basket {
-      @include breakpoint (sm) {
-         object-fit: contain;
+      @include breakpoint (xs) {
+         width: 22px;
       }
    }
 
    &__sticker {
-      width: 50px;
-      height: 15px;
+      width: 34px;
+      height: 19px;
       text-align: center;
       background-image: url("../image/sticker.svg");
       background-position: center;
-      background-size: contain;
       background-repeat: no-repeat;
       padding: 5.2px 0px 0px 10px;
       font-weight: bold;
       font-size: 12px;
       letter-spacing: 0.03em;
       color: #FFFFFF;
-      @include breakpoint (sm) {
-         width: 30px;
-         padding: 2.2px 0px 0px 10px;
+      @include breakpoint (xs) {
+         width: 26px;
+         background-size: contain;
       }
    }
    &__burger {
@@ -203,6 +205,9 @@ ul {
       @include breakpoint (md) {
          padding: 130px 0px 85px 0px;
       }
+      @include breakpoint (sm) {
+         padding: 95px 0px 35px 0px;
+      }
    }
 }
 .sale {
@@ -253,6 +258,10 @@ ul {
          font-size: 36px;
          margin: 20px 0px 45px 0px;
       }
+      @include breakpoint (sm) {
+         font-size: 30px;
+         margin: 0px 0px 30px 0px;
+      }
    }
 
    &__btn {
@@ -269,9 +278,6 @@ ul {
       @include breakpoint (sm) {
          padding: 12px 12px;
          font-size: 14px;
-      }
-      @include breakpoint (xs) {
-         color: cornflowerblue;
       }
    }
    &__product {
@@ -336,6 +342,9 @@ ul {
       @include breakpoint (md) {
          padding: 35px 0px 34px 0px;
       }
+      @include breakpoint (sm) {
+         padding: 15px 0px 14px 0px;
+      }
    }
 }
 .delivery {
@@ -349,6 +358,10 @@ ul {
       text-align: center;
       letter-spacing: 0.02em;
       color: #FFFFFF;
+      @include breakpoint (sm) {
+         margin: 30px 0px 15px 0px;
+         font-size: 25px;
+      }
    }
 
    &__text {
@@ -358,6 +371,9 @@ ul {
       line-height: 26px;
       text-align: center;
       color: #FFFFFF;
+      @include breakpoint (sm) {
+         margin-bottom: 30px;
+      }
    }
 }
 .page-cream {
@@ -365,6 +381,9 @@ ul {
       margin-bottom: 200px;
       @include breakpoint (lg) {
          margin-bottom: 50px;
+      }
+      @include breakpoint (sm) {
+         margin-bottom: 5px;
       }
    }
 }
@@ -375,9 +394,15 @@ ul {
       flex-wrap: wrap;
       justify-content: center;
    }
+   @include breakpoint (md) {
+      gap: 15px;
+   }
    &__item {
       position: relative;
       padding: 60px 245px 58px 0px;
+      @include breakpoint (sm) {
+         padding: 5px 50px 58px 0px;
+      }
    }
 
    &__title {
@@ -386,6 +411,10 @@ ul {
       line-height: 29px;
       letter-spacing: 0.03em;
       color: #000000;
+      white-space: nowrap;
+      @include breakpoint (sm) {
+         white-space: normal;
+      }
    }
 
    &__description {
@@ -403,6 +432,10 @@ ul {
       position: absolute;
       bottom: 0px;
       right: 0px;
+      @include breakpoint (sm) {
+         max-width: 110px;
+         right: 20px;
+      }
    }
 }
 .page-light {
@@ -411,6 +444,9 @@ ul {
    &__new {
       @include breakpoint (lg) {
          margin: 75px 0px 75px 0px;
+      }
+      @include breakpoint (sm) {
+         margin: 30px 0px 30px 0px;
       }
    }
 }
@@ -487,7 +523,6 @@ ul {
       padding: 80px 0px;
       gap: 30px;
       @include breakpoint (md) {
-         // flex: 0 1 48%;
          flex-wrap: wrap;
       }
    }
@@ -502,9 +537,16 @@ ul {
 
    &__nav {
       @include breakpoint (md) {
-         flex-basis: 47%;
+         flex-basis: 40%;
          & li {
             padding-left: 30px;
+         }
+      }
+      @include breakpoint (sm) {
+         flex-basis: 100%;
+         text-align: center;
+         & li {
+            padding-left: 0px;
          }
       }
    }
@@ -563,6 +605,11 @@ ul {
    &__box {
       @include displayflex;
       gap: 30px;
+      @include breakpoint (sm) {
+         flex-wrap: wrap;
+         justify-content: center;
+         text-align: center;
+      }
    }
 }
 .page-light {
